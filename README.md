@@ -126,6 +126,9 @@ The image uses the following software:
 - [horizon](https://github.com/stellar/go/tree/master/services/horizon)
 - Supervisord is used from managing the processes of the services above
 
+## Build
+To build this reposirtory, first make sure you have 'Docker' installed and running. Then clone this repository and run 'MAKE'. This will make 'stellar/quickstart' and 'stellar/quickstart:testing' images on your docker which may be used as described bellow.
+
 ## Usage
 
 To use this project successfully, you should first decide a few things:
@@ -303,6 +306,8 @@ The point of this project is to make running stellar's software within your own 
 
 This image manages two postgres databases:  `core` for stellar-core's data and `horizon` for horizon's data.  The username to use when connecting with your postgresql client or library is `stellar`. The password to use is dependent upon the mode your container is running in:  Persistent mode uses a password supplied by you and ephemeral mode generates a password and prints it to the console upon container startup.
 
+## Running Standalone Nodes
+Standalone nodes are configured with '/standalone/stellar-core.cfg' file. First consider changing the net work 'NETWORK_PASSPHRASE' from the default value. Then the QURUM_SET should be changed to point to other nodes in this network. And finally the VALIDATORS should be added. Please refer to stellar documentaions for more details. Also refer to '/pubnet/stellar-core' or 'testnet/stellar-core.cfg' as examples.
 
 ## Example launch commands
 
